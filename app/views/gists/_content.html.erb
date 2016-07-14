@@ -1,0 +1,8 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= content.name %>
+  </div>
+  <div class="panel-body">
+    <%= content.value.gsub("\n", "<br>").html_safe %>
+  </div>
+</div>

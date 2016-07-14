@@ -1,0 +1,13 @@
+<div class="nested-fields">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= f.text_field :name, class: 'form-control  ', placeholder: 'Filename including extension' %>
+    </div>
+    <div class="panel-body">
+      <%= f.text_area :value, rows: 7, class: 'form-control' %>
+    </div>
+    <div class="panel-footer">
+      <%= link_to_remove_association "Remove file", f, class: 'btn btn-danger' %>
+    </div>
+  </div>
+</div>

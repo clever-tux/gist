@@ -1,0 +1,26 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: gistapp_development
+  pool: 5
+  host: localhost
+  username: gistapp
+  password: password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: gistapp_test
+  pool: 5
+  host: localhost
+  username: gistapp
+  password: password
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: gistapp_production
+  pool: 5
+  host: localhost
+  username: gistapp
+  password: password

@@ -1,0 +1,40 @@
+<%= form_for @gist, html: { class: "form-horizontal gist" } do |f| %>
+
+  <% if @gist.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@gist.errors.count, "error") %> prohibited this gist from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @gist.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <div class="col-lg-12">
+      <%= f.text_field :description, class: 'form-control', placeholder: 'Gist description...' %>
+    </div>
+    <%= f.error_span(:description) %>
+  </div>
+
+  <div class="tasks">
+    <%= f.fields_for :contents do |content| %>
+      <%= render 'content_fields', f: content %>
+    <% end %>
+    <div class="links">
+      <%= link_to_add_association 'Add file', f, :contents, class: 'btn btn-success' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-lg-offset-10 col-lg-2">
+      <%= f.submit nil, class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+<% end %>
