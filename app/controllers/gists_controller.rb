@@ -1,7 +1,7 @@
 class GistsController < ApplicationController
 
   def index
-    @gists = Gist.all
+    @gists = Gist.where(user_id: current_user.try(:id))
   end
 
   def show
@@ -20,6 +20,7 @@ class GistsController < ApplicationController
 
   def create
     @gist = Gist.new(gist_params)
+    @gist.user_id = current_user.try(:id)
     if @gist.save
       redirect_to @gist
     else
@@ -34,6 +35,9 @@ class GistsController < ApplicationController
   end
 
   def destroy
+    @gist = Gist.find(params[:id])
+    @gist.destroy
+    redirect_to gists_path
   end
 
   private

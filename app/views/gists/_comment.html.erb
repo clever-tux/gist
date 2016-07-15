@@ -1,5 +1,8 @@
 <% unless comment.body.blank? %>
   <div class="panel panel-default">
+    <div class="panel-heading">
+      <%= comment.user ? comment.user.login : 'Anonymous' %>
+    </div>
     <div class="panel-body">
       <%= comment.body %>
     </div>
